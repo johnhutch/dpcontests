@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Tinder::Application.load_tasks
+Dpcontests::Application.load_tasks
