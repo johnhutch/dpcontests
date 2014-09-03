@@ -1,18 +1,21 @@
-<%=
-  readme = File.open(Rails.root + "README.md")
-  (render :text => markdown(readme.read)).html_safe
-%>
-
+<div class="masthead">
+  <div class="container">
+    <h1>Double Prime Contests</h1>
+    <p>Lorem Ipsum set dolor amit something another or a thing.</p>
+  </div>
+</div>
 
 <section id="blog" class="blog">
-  <h2>Posts</h2>
-  <% @posts.each do |post| %>
-    <article id="post_#{post.id}" class="post">
-      <h3><%= post.title %></h3>
-      <%= markdown post.body %>
-      <p class="readmore"><%= link_to 'Read More', post %></p>
-    </article>
-  <% end %>
+  <div class="container">
+    <h2>Posts</h2>
+    <% @posts.each do |post| %>
+      <article id="post_#{post.id}" class="post">
+        <h3><%= post.title %></h3>
+        <%= markdown post.body %>
+        <p class="readmore"><%= link_to 'Read More', post %></p>
+      </article>
+    <% end %>
 
-  <%= "<p>No one has posted anything yet.</p>".html_safe unless @posts.present? %></p>
+    <%= "<p>No one has posted anything yet.</p>".html_safe unless @posts.present? %></p>
+  </div>
 </section>

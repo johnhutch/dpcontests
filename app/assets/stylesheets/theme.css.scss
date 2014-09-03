@@ -1,20 +1,7 @@
-// SUSY grid settings
-@include border-box-sizing;
-$total-columns: 12;
-$column-width: 4em;
-$gutter-width: 1em;
-$grid-padding: $gutter-width; 
-
-// Compass & Theme variables
-$default-border-radius: 5px; 
-$light-letterpress-textshadow: 0 2px 3px #fff;
-$dark_boxshadow: #333 0px 2px 4px;
-$light_boxshadow: #ccc 0px 2px 4px;
-$under_boxshadow: #999 0px 8px 6px -6px;
-
-body { background: #f6f1ea;  color: #444440; padding-top: 60px;}
-#container { position: relative; background-color: #fdfdfc; padding-top: $grid-padding; padding-bottom: $grid-padding; border: 1px solid #aaa; @include container; }
-h1, h2, h3, h4, h5, h6 {color: #999992;}
+body { background-color:  white;}
+a {color: $color-primary;}
+.dpcontests-nav { margin-bottom: 0;}
+.navbar-default .navbar-brand {color: $color-primary; }
 
 #notice { color: green; }
 .field_with_errors { padding: 2px; background-color: red; display: table; }
@@ -23,14 +10,10 @@ h1, h2, h3, h4, h5, h6 {color: #999992;}
     ul li { font-size: 12px; list-style: square; } 
 }
 
-/***** FORMS *****/
-form { margin-bottom: 1em;
-    .field {margin: 1em 0;
-        label {font-weight: bold; font-size: 1.2em; color: #777;}
-        input, textarea { width: 100%; padding: .4em .4em .2em .4em; font-size: 1.1em}
-    }
+.masthead {background-color: $color-primary; color: $color-tertiary; padding-top: 2em; padding-bottom: 2em; 
+  h1 {font-size: 3em;}
+  p {font-size: 1.6em; font-weight: 300;}
 }
-
 
 /****** Sign up / Sign in ******/
 /*-----------------------------*/
@@ -38,7 +21,7 @@ section#sign_up { @include span-columns(6); }
 section#sign_in { @include span-columns(6 omega); }
 
 .authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius($default-border-radius); 
-    .remove { text-decoration: none; position: absolute; top: 3px; right: 3px; color: #333; padding: 2px 4px; font-size: 10px; 
+    .remove { text-decoration: none; position: absolute; top: 4px; right: 3px; color: #333; padding: 2px 4px; font-size: 10px; 
         &:hover { color: #FFF; background-color: #777; @include border-radius($default-border-radius); }
     }
     img { float: left; }
@@ -50,26 +33,18 @@ section#sign_in { @include span-columns(6 omega); }
     .auth_provider img { display: block; }
 }
 
-/***** additional form styles *****/
-form .field label {display: block;
-    .field em {display: block; font-size:.9em; color: #666}
-    .checkbox label, form .radio label {display: inline;}
-}
-
 
 /****** MEDIA QUERIES ********/
 /*---------------------------*/
 
 @media only screen and (min-width: 320px) {
-  header h1 {float: left; margin-left: 5%; position: static; margin-top: 6px;}
 }
 
 @media only screen and (min-width: 480px) {
 }
 
 @media only screen and (min-width: 768px) {
-  header h1 {position: absolute; float: none; margin-left: 0; margin-top: 0}
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1025px) {
 }

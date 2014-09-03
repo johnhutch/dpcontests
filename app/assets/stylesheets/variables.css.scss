@@ -1,0 +1,17 @@
+// SUSY grid settings
+@include border-box-sizing;
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width; 
+
+// Compass & Theme variables
+$default-border-radius: 5px; 
+$light-letterpress-textshadow: 0 2px 3px #fff;
+$dark_boxshadow: #333 0px 2px 4px;
+$light_boxshadow: #ccc 0px 2px 4px;
+$under_boxshadow: #999 0px 8px 6px -6px;
+
+$brand-primary: #005186;
+$color-primary: $brand-primary;
+$color-tertiary: #f8f8f8;
