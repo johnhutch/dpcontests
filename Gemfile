@@ -4,13 +4,8 @@ gem 'rails', '3.2.15'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.6'
-  gem 'compass-rails'
-  gem 'bootstrap-sass'
-  gem 'autoprefixer-rails'
-  gem 'susy'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '>= 1.3.0'
-  gem 'jquery-fileupload-rails'
 end
 
 gem 'jquery-rails', '~> 2.0.2'
@@ -32,6 +27,12 @@ gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'rails_config'
 gem 'stamp'
+
+gem 'jquery-fileupload-rails'
+gem 'compass-rails'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'susy'
 
 group :development, :test do
     gem 'sqlite3'
