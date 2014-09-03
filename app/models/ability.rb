@@ -9,12 +9,14 @@ class Ability
     if @user.roles.size == 0  # for guests without roles
       can :read, [Content, User, Post, Photo, Comment]
       can [:front], Content
+      can [:coming_soon], Content
     end
   end
 
   def nobody
     can :read, [Content, User, Post, Photo, Comment]
     can [:front], Content
+    can [:coming_soon], Content
   end
 
   def commenter

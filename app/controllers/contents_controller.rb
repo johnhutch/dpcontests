@@ -4,6 +4,9 @@ class ContentsController < ApplicationController
   def front
     @posts = Post.is_published(true)
   end
+
+  def coming_soon
+  end
   
   def contact
   end

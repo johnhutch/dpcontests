@@ -89,11 +89,34 @@
     <% flash.each do |name, msg| %>
       <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
         <a class="close" data-dismiss="alert">x</a>
-        <%= msg  %>
+        <div class="container">
+          <%= msg  %>
+        </div>
       </div>
     <% end %>
-    <%= yield %>
+
+    <% if @masthead %>
+      <div class="masthead">
+        <div class="container">
+          <%= @masthead.html_safe %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </main>
+
+  <footer class="dpcontests-footer" role="contentinfo">
+    <div class="container">
+      <div class="credit">Built by Hutch.</a>
+      <div class="info">
+        <a class="btn btn-default github" href="https://github.com/johnhutch/dpcontests">View on Github.</a>
+        <a class="btn btn-default issues"  href="mailto:jhutchinson@doubleprime.com">Report Issues.</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- JavaScript at the bottom for fast page loading -->
   <%= javascript_include_tag "application" %>

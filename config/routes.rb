@@ -23,8 +23,10 @@ Dpcontests::Application.routes.draw do
     # content routes
     match "/admin" => "contents#admin", :as => :admin
     match "/contact" => "contents#contact", :as => :contact
+    match "/front" => "contents#front", :as => :front
+    match "/coming_soon" => "contents#coming_soon", :as => :coming_soon
 
-    root :to => "contents#front"
+    root :to => "contents#coming_soon"
 
     # The priority is based upon order of creation:
     # first created -> highest priority.

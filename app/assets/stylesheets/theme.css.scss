@@ -10,9 +10,17 @@ a {color: $color-primary;}
     ul li { font-size: 12px; list-style: square; } 
 }
 
-.masthead {background-color: $color-primary; color: $color-tertiary; padding-top: 2em; padding-bottom: 2em; 
+.masthead {background-color: $color-primary; color: $color-tertiary; padding: 2em 0;
   h1 {font-size: 3em;}
   p {font-size: 1.6em; font-weight: 300;}
+}
+
+footer { padding: 2em 0;
+  .info {float: right}
+}
+
+body#coming_soon {
+  li.usernav, li.about {display: none;}
 }
 
 /****** Sign up / Sign in ******/

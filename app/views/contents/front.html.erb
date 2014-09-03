@@ -1,21 +1,18 @@
-<div class="masthead">
-  <div class="container">
+<% @masthead = %Q|
     <h1>Double Prime Contests</h1>
     <p>Lorem Ipsum set dolor amit something another or a thing.</p>
-  </div>
-</div>
+    |
+  %>
 
 <section id="blog" class="blog">
-  <div class="container">
-    <h2>Posts</h2>
-    <% @posts.each do |post| %>
-      <article id="post_#{post.id}" class="post">
-        <h3><%= post.title %></h3>
-        <%= markdown post.body %>
-        <p class="readmore"><%= link_to 'Read More', post %></p>
-      </article>
-    <% end %>
+  <h2>Posts</h2>
+  <% @posts.each do |post| %>
+    <article id="post_#{post.id}" class="post">
+      <h3><%= post.title %></h3>
+      <%= markdown post.body %>
+      <p class="readmore"><%= link_to 'Read More', post %></p>
+    </article>
+  <% end %>
 
-    <%= "<p>No one has posted anything yet.</p>".html_safe unless @posts.present? %></p>
-  </div>
+  <%= "<p>No one has posted anything yet.</p>".html_safe unless @posts.present? %></p>
 </section>
