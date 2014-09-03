@@ -1,17 +1,17 @@
 defaults: &defaults
   adapter: mysql2
-  username: tinder
+  username: root
   password: 
   host: localhost
 
 production:
   <<: *defaults
-  database: tinder_dev
+  database: dpcontests_dev
 
 development:
   <<: *defaults
-  database: tinder_dev
+  database: dpcontests_dev
 
 test:
   <<: *defaults
-  database: tinder_test
+  database: dpcontests_test
