@@ -3,6 +3,26 @@
   <p>From #{link_to @photo.user.name}</p>
   "
 %>
+  <div class="score">This photo has <%= @photo.get_likes.size %> likes</div>
+  <div class="admin">
+    <% if can? :update, @photo %>
+        <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_photo_url(@photo), :class => "btn btn-default btn-xs edit" %>
+        <% if can? :destroy, @photo %>
+          <%= link_to '<i class="glyphicon glyphicon-remove-circle icon-white"></i> Delete'.html_safe, photo_url(@photo), :method => "delete", :confirm => "Are you sure you want to delete #{@photo.title}?", :class => "btn btn-xs btn-danger delete" %>
+        <% end %>
+    <% end %>
+    <% if can? :like, @photo %>
+      <% if !current_user.voted_for? @photo %>
+        <%= link_to '<i class="glyphicon glyphicon-thumbs-up"></i> Like'.html_safe, like_photo_url(@photo), :class => "btn btn-primary btn-lg" %>
+      <% else %>
+        <%= link_to '<i class="glyphicon glyphicon-thumbs-up"></i> Unlike'.html_safe, unlike_photo_url(@photo), :class => "btn btn-primary btn-lg" %>
+      <% end %>
+    <% end %>
+  </div>
 <div class="big-photo">
   <a href="<%= @photo.image.url %>"><%= image_tag @photo.image.url(:full) %></a>
+</div>
+
+<div class="back-button">
+  <%= link_to "Back to t' photos", photos_path, :class => "btn btn-outline" %>
 </div>

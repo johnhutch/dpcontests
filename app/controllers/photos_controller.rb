@@ -1,6 +1,26 @@
 class PhotosController < ApplicationController
   load_and_authorize_resource
 
+  def like
+    @photo = Photo.find(params[:id])
+    @photo.liked_by current_user
+
+    respond_to do |format|
+      format.html {redirect_to :back, :notice => "Yar, thanks for t' vote!" }
+      format.json { render json: { count: @photo.liked_count } }
+    end
+  end
+
+  def unlike
+    @photo = Photo.find(params[:id])
+    @photo.unliked_by current_user
+
+    respond_to do |format|
+      format.html {redirect_to :back, :notice => "Ahoy, there, changed yer mind?" }
+      format.json { render json: { count: @photo.liked_count } }
+    end
+  end
+
   # GET /photos
   # GET /photos.json
   def index

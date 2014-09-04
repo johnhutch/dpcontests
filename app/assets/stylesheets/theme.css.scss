@@ -75,12 +75,16 @@ body#front section {
 
 
 /******* PHOTO PAGE *******/
+body#show.photos {
+  .admin, .score {text-align: center;}
+  .admin {margin-bottom: 1em; margin-top: .4em;}
+}
 .big-photo {text-align: center; 
   a {
     display: inline-block;
     background-color: $color-tertiary; 
     border: 1px solid #ccc;
-    padding: 1em 1em 3em 1em; 
+    padding: 1em 1em 2em 1em; 
     @include border-radius(2px);
     img {
       max-width: 100%;
@@ -88,24 +92,36 @@ body#front section {
   }
 }
 #photo-grid {
-  .photo { @include span-columns(3);
+  .photo { 
+    @include span-columns(3);
+    @include nth-omega(3n);
+    margin-bottom: 2em;
+    @include clearfix;
+
     a.photo-link {
       display: block;
       text-align: center;
       background-color: $color-tertiary; 
       border: 1px solid #ccc;
-      padding: 1em 1em 3em 1em; 
+      padding: 1em;
       @include border-radius(2px);
       img {
         max-width: 100%;
       }
-      .caption {margin-top: 0.8em; color: $text-color}
+      .caption {margin-top: 0.8em; color: $text-color; height: 3em;}
     }
-    .admin {margin-top: 1em;
+    .admin {
+      text-align: center;
+      margin-top: .6em; 
+      height: 1.8em;
+      @include clearfix;
       .delete {float: right;}
+      .edit {float: left;}
     }
   }
 }
+.back-button {text-align: center; margin-top: 2em;}
+
 
 /****** Sign up / Sign in ******/
 /*-----------------------------*/

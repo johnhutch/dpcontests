@@ -2,14 +2,22 @@
   <a href="<%= photo_path(photo) %>" class="photo-link">
     <%= image_tag photo.image.url(:medium) %>
     <div class="caption"><%= photo.caption %></div>
+    <div class="score"><%= photo.get_likes.size %> likes</div>
   </a>
-  <% if can? :update, photo %>
-    <div class="admin">
-      <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_photo_url(photo), :class => "btn btn-default btn-xs" %>
-      <% if can? :destroy, photo %>
-        <%= link_to '<i class="glyphicon glyphicon-remove-circle icon-white"></i> Delete'.html_safe, photo_url(photo), :method => "delete", :confirm => "Are you sure you want to delete #{photo.title}?", :class => "btn btn-xs btn-danger delete" %>
+  <div class="admin">
+    <% if can? :update, photo %>
+        <%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_photo_url(photo), :class => "btn btn-default btn-xs edit" %>
+        <% if can? :destroy, photo %>
+          <%= link_to '<i class="glyphicon glyphicon-remove-circle icon-white"></i> Delete'.html_safe, photo_url(photo), :method => "delete", :confirm => "Are you sure you want to delete #{photo.title}?", :class => "btn btn-xs btn-danger delete" %>
+        <% end %>
+    <% end %>
+    <% if can? :like, photo %>
+      <% if !current_user.voted_for? photo %>
+        <%= link_to '<i class="glyphicon glyphicon-thumbs-up"></i> Like'.html_safe, like_photo_url(photo), :class => "btn btn-default" %>
+      <% else %>
+        <%= link_to '<i class="glyphicon glyphicon-thumbs-up"></i> Unlike'.html_safe, unlike_photo_url(photo), :class => "btn btn-default" %>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 

@@ -34,6 +34,8 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'susy'
 
+gem 'acts_as_votable', '~> 0.10.0'
+
 group :development, :test do
     gem 'sqlite3'
     gem 'rspec-rails'

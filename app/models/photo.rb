@@ -3,6 +3,8 @@ class Photo < ActiveRecord::Base
   belongs_to :owner, :polymorphic => true
 
   before_create :default_name
+
+  acts_as_votable
   
   has_attached_file :image, :styles => { :full => "800x800>", :medium => "300x300#", :thumb => "100x100>" }
 

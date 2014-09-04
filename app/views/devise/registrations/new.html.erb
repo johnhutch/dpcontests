@@ -1,35 +1,32 @@
-<h2>Sign up</h2>
+<% @masthead = render "devise/sessions/signin_masthead" %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field">
+    <div class="input-group">
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :id => 'registration_name', :class => "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="input-group">
         <%= f.label :email %>
-        <%= f.email_field :email %>
+        <%= f.email_field :email, :id => 'registration_email', :class => "form-control" %>
     </div>
 
-    <%= f.object.password_required? ? 'pass is required' : 'pass is not required' %>
+    <div class="input-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, :id => 'registration_password', :class => "form-control" %>
+    </div>
 
-    <% if f.object.password_required? %>
-        <div class="field">
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-        </div>
-
-        <div class="field">
-            <%= f.label :password_confirmation, "Confirm Password" %>
-            <%= f.password_field :password_confirmation %>
-        </div>
-    <% end %>
+    <div class="input-group">
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation, :id => 'registration_confirm_password', :class => "form-control" %>
+    </div>
 
     <div class="actions">
-        <%= f.submit "Sign up" %>
+      <%= f.submit "Sign up", :class => "btn btn-primary" %>
     </div>
+
 <% end %>
 
 <%= render "links" %>

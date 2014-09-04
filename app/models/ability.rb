@@ -22,16 +22,19 @@ class Ability
   def commenter
     can :create, Comment
     can [:update, :destroy], Comment, :user_id => @user.id
+    can [:like, :unlike], Photo
   end
 
   def author
     can :create, Post
     can [:update, :publish, :destroy], Post, :user_id => @user.id
+    can [:like, :unlike], Photo
   end
 
   def uploader
     can :create, Photo
     can [:update, :destroy], Photo, :user_id => @user.id
+    can [:like, :unlike], Photo
   end
 
   def admin

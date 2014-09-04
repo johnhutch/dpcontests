@@ -3,7 +3,12 @@ Dpcontests::Application.routes.draw do
 
     resources :authentications
 
-    resources :photos
+    resources :photos do
+      member do
+        get :like
+        get :unlike
+      end
+    end
 
     resources :posts do 
         member do

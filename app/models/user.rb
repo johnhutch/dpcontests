@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
     after_create :set_initial_roles
 
+    acts_as_voter
+
     # Include default devise modules. Others available are:
     # :token_authenticatable, :lockable, :timeoutable and :activatable
     devise :database_authenticatable, :registerable,
