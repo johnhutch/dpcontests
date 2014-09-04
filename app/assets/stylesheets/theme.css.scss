@@ -21,7 +21,9 @@ main { background-color: white;}
 
   h1 {font-size: 3em;}
   p {font-size: 1.6em; font-weight: 300;}
-  a {color: $color-tertiary; text-decoration: underline;}
+  a {color: $color-tertiary; text-decoration: underline;
+    &.btn {text-decoration: none;}
+  }
 }
 .content {padding: 2em 0;}
 
