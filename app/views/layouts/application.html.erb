@@ -54,11 +54,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li id="usernav" class="usernav dropdown">
             <% if user_signed_in? %>
-              <%= link_to current_user.name, user_path(current_user), :id => "profile_dropdown", :class => "dropdown-toggle", :data => { :toggle => "dropdown", :target => "#" } %>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dlabel"> 
-                <li><%= link_to "Edit Profile", edit_user_registration_path %></li> 
-                <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
-              </ul>
+              <li><%= link_to "My Account", edit_user_registration_path %></li> 
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => "delete" %></li>
             <% else %>
               <%= link_to t("links.signup_signin"), new_user_session_path %></li>
             <% end %>
