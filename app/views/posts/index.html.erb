@@ -1,10 +1,11 @@
 <section id="posts" class="posts">
-<h3>Posts</h3>
-<% @posts.each do |post| %>
-  <article class="post">
-    <h4><%= post.title %></h4>
-    <%= markdown post.body %>
-    <p class="readmore"><%= link_to 'Read More', post %></p>
-  </article>
-<% end %>
+  <h3>Posts</h3>
+  <% @posts.each do |post| %>
+    <article id="post_#{post.id}" class="post">
+      <h4><%= post.title %></h4>
+      <%= markdown post.body %>
+      <p class="readmore"><%= link_to 'Read More', post %></p>
+    </article>
+  <% end %>
+  <%= "<p>No one has posted anything yet.</p>".html_safe unless @posts.present? %></p>
 </section>
