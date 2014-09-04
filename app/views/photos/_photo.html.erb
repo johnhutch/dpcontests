@@ -1,7 +1,7 @@
 <div class="photo">
   <a href="<%= photo_path(photo) %>" class="photo-link">
     <%= image_tag photo.image.url(:medium) %>
-    <div class="caption"><%= photo.caption %></div>
+    <div class="caption"><%= truncate(photo.caption, length: 70, omission: '... (cont)') %></div>
     <div class="score"><%= photo.get_likes.size %> likes</div>
   </a>
   <div class="admin">
