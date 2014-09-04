@@ -119,6 +119,10 @@ body#show.photos {
       .edit {float: left;}
     }
   }
+
+  @media screen and (max-width: $break-ils) {
+    .photo {@include span-columns(12); }
+  }
 }
 .back-button {text-align: center; margin-top: 2em;}
 
