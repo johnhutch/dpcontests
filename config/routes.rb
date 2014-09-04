@@ -26,7 +26,7 @@ Dpcontests::Application.routes.draw do
     match "/front" => "contents#front", :as => :front
     match "/coming_soon" => "contents#coming_soon", :as => :coming_soon
 
-    root :to => "contents#coming_soon"
+    root :to => "contents#front"
 
     # The priority is based upon order of creation:
     # first created -> highest priority.

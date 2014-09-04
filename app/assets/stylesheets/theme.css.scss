@@ -17,10 +17,31 @@ a {color: $color-primary;}
 
 footer { padding: 2em 0;
   .info {float: right}
+  @media screen and (max-width: $break-ilandscape) {
+    text-align: center;
+    .info {float: none; display: block; margin-top: 1em;}
+  }
 }
 
 body#coming_soon {
   li.usernav, li.about {display: none;}
+}
+
+/***** FORMS *****/
+form { margin-bottom: 1em;
+    field, .input-group {
+      margin: 1em 0; 
+      width: 100%;
+        input, textarea { width: 100%; }
+    }
+    .field {
+      input { @extend .input-control }
+    }
+}
+ul.devise-links {
+  padding-left: 0;
+  list-style-type: none;
+  li { margin: 0 0 1em 0;}
 }
 
 /****** Sign up / Sign in ******/

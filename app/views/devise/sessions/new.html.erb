@@ -2,17 +2,25 @@
     <h2>Sign in</h2>
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <div class="field"><%= f.label :email %> 
-      <%= f.email_field :email, :id => 'sign_in_email' %></div>
+      <div class="input-group input-group-large">
+        <%= f.label :email %>
+        <%= f.email_field :email, :id => 'sign_in_email', :class => "form-control", :placeholder => "you@yours.com"%>
+      </div>
 
-      <div class="field"><%= f.label :password %> 
-      <%= f.password_field :password, :id => 'sign_in_password' %></div>
+      <div class="input-group input-group-large">
+        <%= f.label :password %> 
+        <%= f.password_field :password, :id => 'sign_in_password', :class => "form-control" %>
+      </div>
 
       <% if devise_mapping.rememberable? -%>
-        <div class="field"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :remember_me %> Remember Me
+          </label>
+        </div>
       <% end -%>
 
-      <div class="actions"><%= f.submit "Sign in" %></div>
+      <div class="actions"><%= f.submit "Sign in", :class => "btn btn-primary" %></div>
     <% end %>
 
     <%= render "links" %>
@@ -24,28 +32,28 @@
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field">
+    <div class="input-group">
         <%= f.label :name %>
-        <%= f.text_field :name, :id => 'registration_name' %>
+        <%= f.text_field :name, :id => 'registration_name', :class => "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="input-group">
         <%= f.label :email %>
-        <%= f.email_field :email, :id => 'registration_email' %>
+        <%= f.email_field :email, :id => 'registration_email', :class => "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="input-group">
         <%= f.label :password %>
-        <%= f.password_field :password, :id => 'registration_password' %>
+        <%= f.password_field :password, :id => 'registration_password', :class => "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="input-group">
         <%= f.label :password_confirmation, "Confirm Password" %>
-        <%= f.password_field :password_confirmation, :id => 'registration_confirm_password' %>
+        <%= f.password_field :password_confirmation, :id => 'registration_confirm_password', :class => "form-control" %>
     </div>
 
     <div class="actions">
-        <%= f.submit "Sign up" %>
+      <%= f.submit "Sign up", :class => "btn btn-primary" %>
     </div>
     <% end %>
 
