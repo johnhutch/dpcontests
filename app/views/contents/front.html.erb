@@ -17,8 +17,13 @@
 
 <section id="dubloon-guessing">
   <h4>If it's gold dubloons ye be seeking, this be the place for you!</h4>
+  <%= link_to "Guess th' Gold", front_path, :class => "btn btn-lg btn-primary", :disabled => true %>
+  <small>We're not quite there yet, me hearties. Check back later to leave yer guess!</small>
+
+  <!--
   <%= link_to "Guess th' Gold", front_path, :class => "btn btn-lg btn-primary", :disabled => !user_signed_in? %>
   <% unless user_signed_in? %>
     <small>Didn't ye see what I just said? <%= link_to "Sign in or sign up!", new_user_session_path %></small>
   <% end %>
+  -->
 </section>
