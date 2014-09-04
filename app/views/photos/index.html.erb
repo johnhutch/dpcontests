@@ -1,15 +1,10 @@
-<h2>Photos</h2>
+<% @masthead = " 
+  <h1>So what say ye? Which of these swarthy corsairs deserve yer accolades?</h1>
+  <p>Click a photo t' see it all big, 'r just like it on the spot.</p>
+  "
+%>
 
-<ul id="mosaic">
+<section id="photo-grid">
   <%= render @photos %>
-</ul>
+</section>
 
-<% if can? :create, @photo %>
-  <%= render 'form' %>
-  <script id="template-upload" type="text/x-tmpl">
-    <div class="upload">
-      {%=o.name%}
-      <div class="progress"><div class="bar" style="width: 0%"></div></div>
-    </div>
-  </script>
-<% end %>

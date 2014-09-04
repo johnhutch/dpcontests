@@ -1,6 +1,8 @@
-<h2><%= @photo.title %></h2>
-<section class="byline">Posted by <%= @photo.user.name %></section>
-
-<a href="<%= @photo.image.url(:medium) %>"><%= image_tag @photo.image.url(:thumb) %></a>
-
-<%= markdown @photo.caption %>
+<% @masthead = " 
+  <h1>#{@photo.caption}</h1>
+  <p>From #{link_to @photo.user.name}</p>
+  "
+%>
+<div class="big-photo">
+  <a href="<%= @photo.image.url %>"><%= image_tag @photo.image.url(:full) %></a>
+</div>

@@ -10,9 +10,21 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image, multiple: true, name: "photo[image]" %>
+
+  <div class="fileinput fileinput-new" data-provides="fileinput">
+    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+    <div>
+      <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field :image, multiple: true, name: "photo[image]", :class => "" %></span>
+      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <%= f.label :caption, "Better have a good caption for yer photo! Can't win no booty without a good caption" %>
+    <%= f.text_field :caption, :class => "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'data-disable-with' => "Saving...", :class => "btn btn-primary btn-large" %>
   </div>
 <% end %>

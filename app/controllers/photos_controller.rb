@@ -40,10 +40,20 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
-  # POST /photos
-  # POST /photos.json
+  # photo /photos
+  # photo /photos.json
   def create
     @photo = current_user.photos.create(params[:photo])
+
+    respond_to do |format|
+      if @photo.save
+        format.html { redirect_to(@photo, :notice => t('flash.photo_created')) }
+        format.xml  { render :xml => @photo, :status => :created, :location => @photo }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @photo.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /photos/1

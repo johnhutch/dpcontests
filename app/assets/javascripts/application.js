@@ -8,6 +8,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery_nested_form
-//= require jquery-fileupload/basic
-//= require jquery-fileupload/vendor/tmpl
+//= require jasny-bootstrap
 //= require_tree .

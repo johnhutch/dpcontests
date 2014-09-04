@@ -21,6 +21,7 @@ main { background-color: white;}
 
   h1 {font-size: 3em;}
   p {font-size: 1.6em; font-weight: 300;}
+  a {color: $color-tertiary; text-decoration: underline;}
 }
 .content {padding: 2em 0;}
 
@@ -68,6 +69,40 @@ section#dubloon-guessing { @include span-columns(4 omega); }
 body#front section {
   h4 {height: 4em; font-weight: 300; padding-left: 2px;}
   a.btn {width: 100%; text-align: center;}
+}
+
+
+/******* PHOTO PAGE *******/
+.big-photo {text-align: center; 
+  a {
+    display: inline-block;
+    background-color: $color-tertiary; 
+    border: 1px solid #ccc;
+    padding: 1em 1em 3em 1em; 
+    @include border-radius(2px);
+    img {
+      max-width: 100%;
+    }
+  }
+}
+#photo-grid {
+  .photo { @include span-columns(3);
+    a.photo-link {
+      display: block;
+      text-align: center;
+      background-color: $color-tertiary; 
+      border: 1px solid #ccc;
+      padding: 1em 1em 3em 1em; 
+      @include border-radius(2px);
+      img {
+        max-width: 100%;
+      }
+      .caption {margin-top: 0.8em; color: $text-color}
+    }
+    .admin {margin-top: 1em;
+      .delete {float: right;}
+    }
+  }
 }
 
 /****** Sign up / Sign in ******/

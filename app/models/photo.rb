@@ -4,7 +4,7 @@ class Photo < ActiveRecord::Base
 
   before_create :default_name
   
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :image, :styles => { :full => "800x800>", :medium => "300x300#", :thumb => "100x100>" }
 
   validates_attachment :image, :presence => true, :size => { :in => 1..5000.kilobytes }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
