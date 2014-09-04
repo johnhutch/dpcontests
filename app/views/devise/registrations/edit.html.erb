@@ -1,55 +1,67 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% @masthead = %Q|
+  <h1>Wanna change yer stuff, eh?</h1>
+  <p>Well, then, get on with it.</p>
+| %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>
 
-    <div><%= f.label :email %><br />
-        <%= f.email_field :email %></div>
+    <div class="input-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, :class => "form-control" %>
+    </div>
 
-    <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, :autocomplete => "off" %></div>
+    <div class="input-group">
+      <%= f.label :password %>
+      <small>(leave blank if you don't want to change it)</small>
+      <%= f.password_field :password, :autocomplete => "off", :class => "form-control" %>
+    </div>
 
-    <div><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation %></div>
+    <div class="input-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, :class => "form-control" %>
+    </div>
 
     <% if f.object.encrypted_password.present? %>
-        <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password %></div>
+      <div class="input-group">
+        <%= f.label :current_password %> 
+        <small>(we need your current password to confirm your changes)</small>
+        <%= f.password_field :current_password, :class => "form-control" %>
+      </div>
     <% end %>
 
-    <div><%= f.submit "Update" %></div>
+    <div><%= f.submit "Update", :class => "btn btn-lg btn-primary" %></div>
 <% end %>
 
-<section id="authentications" class="clearfix">
-    <h2>Authentications</h2>
-    <% @authentications = current_user.authentications if current_user %>
-    <% if @authentications %>
-        <% unless @authentications.empty? %>
-            <p><strong>You can sign in to this account using:</strong></p>
-            <div class="authentications clearfix">
-                <% for authentication in @authentications %>
-                    <div class="authentication">
-                        <%= image_tag "authbuttons/#{authentication.provider}_32.png" %>
-                        <div class="provider"><%= authentication.provider.titleize %></div>
-                        <div class="uid"><%= authentication.uid %></div>
-                        <%= link_to "X", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %>
-                    </div>
-                <% end %>
-            </div>
-        <% end %>
-        <p><strong>Add another service to sign in with:</strong></p>
-    <% else %>
-        <p><strong>Sign in through one of these services:</strong></p>
-    <% end %>
+<%- if devise_mapping.omniauthable? %>
+  <section id="authentications" class="clearfix">
+      <h2>Authentications</h2>
+      <% @authentications = current_user.authentications if current_user %>
+      <% if @authentications %>
+          <% unless @authentications.empty? %>
+              <p><strong>You can sign in to this account using:</strong></p>
+              <div class="authentications clearfix">
+                  <% for authentication in @authentications %>
+                      <div class="authentication">
+                          <%= image_tag "authbuttons/#{authentication.provider}_32.png" %>
+                          <div class="provider"><%= authentication.provider.titleize %></div>
+                          <div class="uid"><%= authentication.uid %></div>
+                          <%= link_to "X", authentication, :confirm => 'Are you sure you want to remove this authentication option?', :method => :delete, :class => "remove" %>
+                      </div>
+                  <% end %>
+              </div>
+          <% end %>
+          <p><strong>Add another service to sign in with:</strong></p>
+      <% else %>
+          <p><strong>Sign in through one of these services:</strong></p>
+      <% end %>
 
-    <a href="/auth/twitter" class="auth_provider"><%= image_tag "authbuttons/twitter_64.png", :alt => "Twitter" %>Twitter</a>
-    <a href="/auth/facebook" class="auth_provider"><%= image_tag "authbuttons/facebook_64.png", :alt => "Facebook" %>Facebook</a>
-    <a href="/auth/google_apps" class="auth_provider"><%= image_tag "authbuttons/google_64.png", :alt => "Google" %>Google</a>
-    <a href="/auth/open_id" class="auth_provider"><%= image_tag "authbuttons/openid_64.png", :alt => "OpenID" %>OpenID</a>
-</section>
+      <a href="/auth/twitter" class="auth_provider"><%= image_tag "authbuttons/twitter_64.png", :alt => "Twitter" %>Twitter</a>
+      <a href="/auth/facebook" class="auth_provider"><%= image_tag "authbuttons/facebook_64.png", :alt => "Facebook" %>Facebook</a>
+      <a href="/auth/google_apps" class="auth_provider"><%= image_tag "authbuttons/google_64.png", :alt => "Google" %>Google</a>
+      <a href="/auth/open_id" class="auth_provider"><%= image_tag "authbuttons/openid_64.png", :alt => "OpenID" %>OpenID</a>
+  </section>
+<% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+<hr/>
+<p>Ye gone soft, ye scurvy dog? Well, I suppose if ye reall want to, you can take a walk off the plank, as it were. </p> <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-danger" %>

@@ -1,12 +1,17 @@
-<h2>Resend unlock instructions</h2>
+<% @masthead = %Q|
+  <h1>Ay, now ye done it. We gotta resend yer unlock instructions</h1>
+  <p>Better tell us yer email so we can set ye up proper.</p>
+| %>
 
 <%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div class="input-group">
+    <div><%= f.label :email %><br />
+      <%= f.email_field :email, :class => "form-control" %></div>
+  </div>
 
-  <div><%= f.submit "Resend unlock instructions" %></div>
+  <div><%= f.submit "Resend unlock instructions", class => "btn btn-lg btn-primary"  %></div>
 <% end %>
 
 <%= render "links" %>
