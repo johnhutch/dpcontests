@@ -1,10 +1,12 @@
+<% @masthead = render "signin_masthead" %>
+
 <section id="sign_in" class="column">
     <h2>Sign in</h2>
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <div class="input-group input-group-large">
         <%= f.label :email %>
-        <%= f.email_field :email, :id => 'sign_in_email', :class => "form-control", :placeholder => "you@yours.com"%>
+        <%= f.email_field :email, :id => 'sign_in_email', :class => "form-control" %> 
       </div>
 
       <div class="input-group input-group-large">

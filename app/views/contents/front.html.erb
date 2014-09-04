@@ -1,20 +1,24 @@
-<% @masthead = %Q|
-    <h1>Yar.</h1>
-    <p>Ahoy, ye scurvy dogs, and welcome to the Double Prime Pirate Contest.</p>
-    |
-%>
+<% @masthead = render "front_masthead" %>
+
+<h2> Already climbed aboard? Well, then ye might be interested in these.</h2>
 
 <section id="your-submission">
   <h4>Dare ye t'enter the photo contest?</h4>
-  <%= link_to "Upload Your Photo", new_post_path, :class => "btn btn-lg btn-primary" %>
+  <%= link_to "Upload Your Photo", new_post_path, :class => "btn btn-lg btn-primary", :disabled => !user_signed_in? %>
+  <% unless user_signed_in? %>
+    <small>Better <%= link_to "sign in or sign up", new_user_session_path %>, matey, or we'll give ye  no quarter!</small>
+  <% end %>
 </section>
 
 <section id="vote">
   <h4>Think yer the captain, do ye? Why not vote for yer favorite entries?</h4>
-  <%= link_to "Vote", posts_path, :class => "btn btn-lg btn-primary" %>
+  <%= link_to "View the Entries", posts_path, :class => "btn btn-lg btn-primary" %>
 </section>
 
 <section id="dubloon-guessing">
   <h4>If it's gold dubloons ye be seeking, this be the place for you!</h4>
-  <%= link_to "Guess The Gold", front_path, :class => "btn btn-lg btn-primary" %>
+  <%= link_to "Guess The Gold", front_path, :class => "btn btn-lg btn-primary", :disabled => !user_signed_in? %>
+  <% unless user_signed_in? %>
+    <small>Didn't ye see what I just said? <%= link_to "Sign in or sign up!", new_user_session_path %></small>
+  <% end %>
 </section>

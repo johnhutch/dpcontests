@@ -3,15 +3,22 @@ a {color: $color-primary;}
 .dpcontests-nav { margin-bottom: 0;}
 .navbar-default .navbar-brand {color: $color-primary; }
 
-#notice { color: green; }
-.field_with_errors { padding: 2px; background-color: red; display: table; }
+#notice { color: $brand-success; }
+.field_with_errors { padding: 2px; background-color: $brand-danger; display: table; }
 #error_explanation { border: 2px solid red; padding: 7px; padding-bottom: 0; margin-bottom: 20px; background-color: #f0f0f0;
     h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 12px; margin: -7px; margin-bottom: 0px; background-color: #c00; color: #fff; }
     ul li { font-size: 12px; list-style: square; } 
 }
+.alert {margin-bottom: 0; font-size: 1.2em; font-weight: 400; text-align: center}
+.alert-error {background-color: $brand-danger; color: #fff8f8;}
 
 main { background-color: white;}
-.masthead {background-color: $color-primary; color: $color-tertiary; padding: 2em 0;
+.masthead {
+  background-color: $color-primary; 
+  color: $color-tertiary; 
+  padding: 2em 0;
+  text-align: center;
+
   h1 {font-size: 3em;}
   p {font-size: 1.6em; font-weight: 300;}
 }
@@ -19,7 +26,7 @@ main { background-color: white;}
 
 footer { padding: 2em 0;
   .info {float: right}
-  @media screen and (max-width: $break-ilandscape) {
+  @media screen and (max-width: $break-ils) {
     text-align: center;
     .info {float: none; display: block; margin-top: 1em;}
   }
@@ -52,6 +59,12 @@ section#your-submission { @include span-columns(4); }
 section#vote { @include span-columns(4); }
 section#dubloon-guessing { @include span-columns(4 omega); }
 
+@media screen and (max-width: $break-android_ls) {
+  section#your-submission { @include span-columns(12); }
+  section#vote { @include span-columns(12); }
+  section#dubloon-guessing { @include span-columns(12 omega); }
+}
+
 body#front section {
   h4 {height: 4em; font-weight: 300; padding-left: 2px;}
   a.btn {width: 100%; text-align: center;}
@@ -61,6 +74,10 @@ body#front section {
 /*-----------------------------*/
 section#sign_up { @include span-columns(6); }
 section#sign_in { @include span-columns(6 omega); }
+@media screen and (max-width: $break-ils) {
+  section#sign_up { @include span-columns(12); }
+  section#sign_in { @include span-columns(12 omega); }
+}
 
 .authentication { float: left; background-color: #EEE; border: solid 1px #999; padding: 5px 10px; position: relative; margin-right: 10px; @include border-radius($default-border-radius); 
     .remove { text-decoration: none; position: absolute; top: 4px; right: 3px; color: #333; padding: 2px 4px; font-size: 10px; 
@@ -73,6 +90,35 @@ section#sign_in { @include span-columns(6 omega); }
 }
 .auth_provider { float: left; text-decoration: none; margin-right: 20px; text-align: center; margin-bottom: 10px; 
     .auth_provider img { display: block; }
+}
+
+/* Outline button for use within the docs */
+.btn-outline {
+  color: $color-primary;
+  background-color: transparent;
+  border-color: #e5e5e5;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active {
+  color: #fff;
+  background-color: #563d7c;
+  border-color: #563d7c;
+}
+
+/* Inverted outline button (white on dark) */
+.btn-outline-inverse {
+  color: #fff;
+  background-color: transparent;
+  border-color: white;
+}
+.btn-outline-inverse:hover,
+.btn-outline-inverse:focus,
+.btn-outline-inverse:active {
+  color: $color-primary;
+  text-shadow: none;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 
