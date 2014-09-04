@@ -62,17 +62,22 @@ section#your-submission { @include span-columns(4); }
 section#vote { @include span-columns(4); }
 section#dubloon-guessing { @include span-columns(4 omega); }
 
-@media screen and (max-width: $break-android_ls) {
-  section#your-submission { @include span-columns(12); }
-  section#vote { @include span-columns(12); }
-  section#dubloon-guessing { @include span-columns(12 omega); }
-}
-
 body#front section {
   h4 {height: 4em; font-weight: 300; padding-left: 2px;}
   a.btn {width: 100%; text-align: center;}
 }
 
+@media screen and (max-width: $break-android_ls) {
+  section#your-submission { @include span-columns(12); }
+  section#vote { @include span-columns(12); }
+  section#dubloon-guessing { @include span-columns(12 omega); }
+
+  body#front section {
+    margin-bottom: 2em;
+    h4 {height: auto; font-weight: 300; padding-left: 0px;}
+    a.btn {width: 100%; text-align: center;}
+  }
+}
 
 /******* PHOTO PAGE *******/
 body#show.photos {
