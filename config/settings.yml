@@ -9,3 +9,10 @@ omniauth:
     twitter_secret:     ""
     facebook_id:        ""
     facebook_secret:    ""
+mail:
+    address:            "smtp.gmail.com"
+    user_name:          ""
+    password:           ""
+    authentication:     "plain"
+    port:               "587"
+    domain:             ""
