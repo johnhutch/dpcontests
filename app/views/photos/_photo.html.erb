@@ -1,3 +1,4 @@
+<% unless photo.id == 3 %>
 <div class="photo">
   <a href="<%= photo_path(photo) %>" class="photo-link">
     <%= image_tag photo.image.url(:medium) %>
@@ -20,4 +21,4 @@
     <% end %>
   </div>
 </div>
-
+<% end %>
