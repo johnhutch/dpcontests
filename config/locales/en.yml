@@ -5,8 +5,8 @@ en:
   site_name: "Double Prime Contests"
   
   labels:
-    update_comment:          "Update your comment"
-    post_a_comment:          "Post a comment"
+    update_comment:          "Update your guess"
+    post_a_comment:          "Post a guess"
   buttons:
     reset_password:         "Send me reset password instructions"
     change_password:        "Change my password"
@@ -15,8 +15,8 @@ en:
     upload_photo:           "Upload Photo"
     create_photo:           "Create Photo"
     edit_photo:             "Update Photo"
-    create_comment:         "Post my comment"
-    edit_comment:           "Update my comment"
+    create_comment:         "Leave yer guess!"
+    edit_comment:           "Update my guess!"
   flash:
     signed_in:              "Signed in successfully"
     post_created:           "Post was successfully created."
@@ -24,9 +24,9 @@ en:
     post_published:         "Post was successfully published."
     photo_created:          "Photo was successfully created."
     photo_updated:          "Photo was successfully updated."
-    comment_created:        "Comment was successfully created."
-    comment_updated:        "Comment was successfully updated."
-    comment_problem:        "There was a problem saving your comment."
+    comment_created:        "Guess was successfully saved."
+    comment_updated:        "Guess was successfully updated."
+    comment_problem:        "There was a problem saving your guess."
   errors:
     post_publish:           "There was a problem publishing your post."
   links:

@@ -1,21 +1,16 @@
+<% @masthead = "<h1>#{@post.title}</h1>" %>
 <article id="post">
-  <h3><%= @post.title %></h3>
-  <div id="byline">Posted by <%= @post.user.email %> <%= published?(@post) %></div>
-  
   <% for photo in @post.photos %>
-    <h4><%= photo.title %></h4>
-
-    <a href="<%= photo.image.url(:medium) %>"><%= image_tag photo.image.url(:thumb) %></a>
-
+    <a href="<%= photo.image.url %>"><%= image_tag photo.image.url(:full) %></a>
     <%= markdown photo.caption %>
   <% end %>
   <%= markdown @post.body %>
 </article>
 
 <section id="comments">
-  <h3>Comments</h3>
+  <h3>Leave yer best guess down below</h3>
 	<% if @post.comments.blank? %>
-		<p>This post has no comments</p>
+    <p>Yar, no one has had the courage t' guess! Have you?</p>
 	<% end %>
   <%= render :partial => 'layouts/comment', :collection => @post.comments %>
   <%= render :partial => 'layouts/new_comment', :locals => {:type => "post"} %> 

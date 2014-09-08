@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   
   accepts_nested_attributes_for :photos, :reject_if => lambda { |a| a[:image].blank? }, :allow_destroy => true
 
-  validates_presence_of :title, :photos_attributes
+  validates_presence_of :title
   
   attr_accessible :title, :body, :photos_attributes
 

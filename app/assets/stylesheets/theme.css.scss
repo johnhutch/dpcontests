@@ -147,6 +147,9 @@ body#show.photos {
 .back-button {text-align: center; margin-top: 2em;}
 
 
+.comment-body {width: 2em;}
+
+
 /****** Sign up / Sign in ******/
 /*-----------------------------*/
 section#sign_up { @include span-columns(6); }

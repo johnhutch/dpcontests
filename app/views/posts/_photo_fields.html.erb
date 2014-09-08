@@ -1,19 +1,20 @@
 <fieldset class="photo">
   <h3>Photo:</h3>
-  <div class="field">
-    <%= p.label :title, "Photo Title" %>
-    <%= p.text_field :title %>
+
+  <div class="fileinput fileinput-new" data-provides="fileinput">
+    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+    <div>
+      <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= p.file_field :image %></span>
+    </div>
   </div>
-  <div class="field">
-    <%= p.label :image, "File Upload" %>
-    <%= p.file_field :image %>
-  </div>
-  <div class="field">
+
+  <div class="input-group">
     <%= p.label :caption, "Photo Caption" %>
-    <%= p.text_field :caption %>
+    <%= p.text_field :caption, :class => "form-control"%>
   </div>
-  <div class="field destroy">
-    <%= p.link_to_remove "Remove this photo" %>
+
+  <div class="input-group destroy">
+    <%= p.link_to_remove "Remove this photo", :class => "btn btn-sm btn-warning" %>
   </div>
 
 </fieldset>
